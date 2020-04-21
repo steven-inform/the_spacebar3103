@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+
+                        {% for city in cities %}
+
+                            <!--template voor 1 kolom in de body van stad.php -->
+                            <div class="col-sm-4">
+
+                                <h3>{{ city.cit_name }}</h3>
+
+                                <ul>
+                                    <li>Inwoners: {{ city.cit_inhabitants }}</li>
+                                    <!-- <li>Coordinates: {# city.cit_coordinates #}</li> -->
+                                </ul>
+
+                                <a href="#">
+                                    <img title="{{ city.img_title }}" class="img-fluid" src=images/{{ city.img_filename }}.jpg>
+                                </a>
+                                <span class="breadcrumb black">{{ city.img_title }}</span>
+                                <!--<span class="breadcrumb black">{# city.cit_weather_desc #}, {# city.cit_weather_temp #} &deg;C</span>-->
+
+                            </div>
+
+                        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}
